@@ -13,9 +13,7 @@ public class Cliente {
         this.genero = genero;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
+    public String getCpf() {return cpf;}
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
