@@ -35,7 +35,7 @@ public class Cliente {
     private int definirIdadeAtual(){
         return recuperaAnoAtual() - recuperarAnoNascimento();
     }
-
+    
     private int recuperarAnoNascimento() {
         Calendar calendario = Calendar.getInstance();
         Date dataNascimentoCliente;
@@ -62,7 +62,7 @@ public class Cliente {
             return new SimpleDateFormat(formatoData);
         }
     }
-
+    
     public String getCpf() {return cpf;}
     public void setCpf(String cpf) {
         this.cpf = cpf;
@@ -81,7 +81,7 @@ public class Cliente {
     public void setNomeCompleto(String nomeCompleto) {
         this.nomeCompleto = nomeCompleto;
     }
-
+    
     public char getGenero() {
         return genero;
     }
