@@ -4,7 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class Cliente {
+public class ClienteBuilder {
     private String nomeCompleto;
     private String primeiroNome;
     private String nomesMeio;
@@ -17,8 +17,8 @@ public class Cliente {
     private String endereco;
     private String telefone;
 
-    public Cliente(String primeiroNome, String nomesMeio, String sobrenome,String cpf, String dataNascimento,
-                   char genero, String email, String endereco, String telefone){
+    public ClienteBuilder comIdentificacao(String primeiroNome, String nomesMeio, String sobrenome,String cpf, String dataNascimento,
+                   char genero){
         this.primeiroNome = primeiroNome;
         this.nomesMeio = nomesMeio;
         this.sobrenome = sobrenome;
@@ -27,15 +27,19 @@ public class Cliente {
         this.dataNascimento = dataNascimento;
         this.idadeAtual = definirIdadeAtual();
         this.genero = genero;
+        return this;
+    }
+    public ClienteBuilder comContatos(String email, String endereco, String telefone){
         this.email = email;
         this.endereco = endereco;
         this.telefone = telefone;
+        return this;
     }
 
     private int definirIdadeAtual(){
         return recuperaAnoAtual() - recuperarAnoNascimento();
     }
-    
+
     private int recuperarAnoNascimento() {
         Calendar calendario = Calendar.getInstance();
         Date dataNascimentoCliente;
@@ -62,7 +66,7 @@ public class Cliente {
             return new SimpleDateFormat(formatoData);
         }
     }
-    
+
     public String getCpf() {return cpf;}
     public void setCpf(String cpf) {
         this.cpf = cpf;
@@ -81,7 +85,7 @@ public class Cliente {
     public void setNomeCompleto(String nomeCompleto) {
         this.nomeCompleto = nomeCompleto;
     }
-    
+
     public char getGenero() {
         return genero;
     }
@@ -160,5 +164,14 @@ public class Cliente {
                 ",com idade de "+getIdadeAtual()+
                 ", endereço "+getEndereco()+", telefone "+getTelefone()+" e e-mail "+
                 getEmail();
+    }
+    public String toStringCIdentificacao(){
+        return "Os dados pessoais são; \n"+tratamentoGenero()+" "+getNomeCompleto()+", com cpf "+
+                getCpf() +", data de nascimento "+getDataNascimento()+
+                ",com idade de "+getIdadeAtual()+"anos.";
+    }
+    public String toStringContatos(){
+        return "Os dados de contato são; \n"+"E-mail: "+ getEmail()+"\nEndereço: "+getEndereco()+
+                "\nTelefone: "+getTelefone();
     }
 }
