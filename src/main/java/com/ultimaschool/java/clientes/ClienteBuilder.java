@@ -17,8 +17,8 @@ public class ClienteBuilder {
     private String endereco;
     private String telefone;
 
-    public ClienteBuilder comIdentificacao(String primeiroNome, String nomesMeio, String sobrenome,String cpf, String dataNascimento,
-                   char genero){
+    public ClienteBuilder comIdentificacao(String primeiroNome, String nomesMeio, String sobrenome,String cpf,
+                                           String dataNascimento, char genero){
         this.primeiroNome = primeiroNome;
         this.nomesMeio = nomesMeio;
         this.sobrenome = sobrenome;
@@ -168,7 +168,7 @@ public class ClienteBuilder {
     public String toStringCIdentificacao(){
         return "Os dados pessoais são; \n"+tratamentoGenero()+" "+getNomeCompleto()+", com cpf "+
                 getCpf() +", data de nascimento "+getDataNascimento()+
-                ",com idade de "+getIdadeAtual()+"anos.";
+                ",com idade de "+getIdadeAtual()+" anos.";
     }
     public String toStringContatos(){
         return "Os dados de contato são; \n"+"E-mail: "+ getEmail()+"\nEndereço: "+getEndereco()+
