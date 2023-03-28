@@ -15,7 +15,7 @@ public class ClienteBuilderTest extends TestCase {
         clienteBuilder2 = new ClienteBuilder();
         clienteBuilder = new ClienteBuilder().comIdentificacao("Joana", "Maria",
                 "Rocha", "123.456.789-00","10/01/1993",'F').comContatos(
-                        "joana@gmail.com","Av. Brasil", "(85) 9999-9999");
+                "joana@gmail.com","Av. Brasil", "(85) 9999-9999");
     }
 
     @Test
