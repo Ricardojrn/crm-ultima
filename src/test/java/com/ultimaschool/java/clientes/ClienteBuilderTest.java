@@ -49,8 +49,8 @@ public class ClienteBuilderTest extends TestCase {
     }
     @Test
     public void testSetPrimeiroNome() {
-        clienteBuilder.setPrimeiroNome("Aline");
-        Assertions.assertEquals(clienteBuilder.getPrimeiroNome(),"Aline");
+        clienteBuilder.setPrimeiroNome("Tamires");
+        Assertions.assertEquals(clienteBuilder.getPrimeiroNome(),"Tamires");
         clienteBuilder2.setPrimeiroNome("João");
         Assertions.assertEquals(clienteBuilder2.getPrimeiroNome(),"João");
     }
