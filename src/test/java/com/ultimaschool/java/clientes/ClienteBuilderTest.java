@@ -14,7 +14,8 @@ public class ClienteBuilderTest extends TestCase {
     public void setUp() throws Exception {
         clienteBuilder2 = new ClienteBuilder();
         clienteBuilder = new ClienteBuilder().comIdentificacao("Joana", "Maria",
-                "Rocha", "123.456.789-00","10/01/1993",'F');
+                "Rocha", "123.456.789-00","10/01/1993",'F').comContatos(
+                        "joana@gmail.com","Av. Brasil", "(85) 9999-9999");
     }
 
     @Test
@@ -30,6 +31,54 @@ public class ClienteBuilderTest extends TestCase {
         Assertions.assertEquals(clienteBuilder2.getCpf(),"111.111.111-11");
     }
     @Test
+    public void testGetEmail() {
+        Assertions.assertNull(clienteBuilder2.getEmail());
+        Assertions.assertEquals(clienteBuilder.getEmail(),"joana@gmail.com");
+    }
+    @Test
+    public void testSetEmail() {
+        clienteBuilder.setEmail("joanaM@gmail.com");
+        Assertions.assertEquals(clienteBuilder.getEmail(),"joanaM@gmail.com");
+        clienteBuilder2.setEmail("maria@gmail.com");
+        Assertions.assertEquals(clienteBuilder2.getEmail(),"maria@gmail.com");
+    }
+    @Test
+    public void testGetPrimeiroNome() {
+        Assertions.assertNull(clienteBuilder2.getPrimeiroNome());
+        Assertions.assertEquals(clienteBuilder.getPrimeiroNome(),"Joana");
+    }
+    @Test
+    public void testSetPrimeiroNome() {
+        clienteBuilder.setPrimeiroNome("Aline");
+        Assertions.assertEquals(clienteBuilder.getPrimeiroNome(),"Aline");
+        clienteBuilder2.setPrimeiroNome("João");
+        Assertions.assertEquals(clienteBuilder2.getPrimeiroNome(),"João");
+    }
+    @Test
+    public void testGetNomesMeio() {
+        Assertions.assertNull(clienteBuilder2.getNomesMeio());
+        Assertions.assertEquals(clienteBuilder.getNomesMeio(),"Maria");
+    }
+    @Test
+    public void testSetNomesMeio() {
+        clienteBuilder.setNomesMeio("Maria");
+        Assertions.assertEquals(clienteBuilder.getNomesMeio(),"Maria");
+        clienteBuilder2.setNomesMeio("José");
+        Assertions.assertEquals(clienteBuilder2.getNomesMeio(),"José");
+    }
+    @Test
+    public void testGetSobrenome() {
+        Assertions.assertNull(clienteBuilder2.getSobrenome());
+        Assertions.assertEquals(clienteBuilder.getSobrenome(),"Rocha");
+    }
+    @Test
+    public void testSetSobrenome() {
+        clienteBuilder.setSobrenome("Silva");
+        Assertions.assertEquals(clienteBuilder.getSobrenome(),"Silva");
+        clienteBuilder2.setSobrenome("Cardoso");
+        Assertions.assertEquals(clienteBuilder2.getSobrenome(),"Cardoso");
+    }
+    @Test
     public void testGetNomeCompleto() {
         Assertions.assertNull(clienteBuilder2.getNomeCompleto());
         Assertions.assertEquals(clienteBuilder.getNomeCompleto(),"Joana Maria Rocha");
@@ -40,6 +89,26 @@ public class ClienteBuilderTest extends TestCase {
         Assertions.assertEquals(clienteBuilder.getNomeCompleto(),"Aline Maria Rocha");
         clienteBuilder2.setNomeCompleto("João Mota");
         Assertions.assertEquals(clienteBuilder2.getNomeCompleto(),"João Mota");
+    }
+    @Test
+    public void testGetDataNascimento(){
+        Assertions.assertNull(clienteBuilder2.getDataNascimento());
+        Assertions.assertEquals(clienteBuilder.getDataNascimento(),"10/01/1993");
+    }
+    public void testSetDataNascimento(){
+        clienteBuilder.setDataNascimento("12/04/1992");
+        Assertions.assertEquals(clienteBuilder.getDataNascimento(),"12/04/1992");
+    }
+    @Test
+    public void testGetIdadeAtual(){
+        Assertions.assertEquals(clienteBuilder2.getIdadeAtual(),0);
+        Assertions.assertEquals(clienteBuilder.getIdadeAtual(),31);
+    }
+    public void testSetIdadeAtual(){
+        clienteBuilder.setIdadeAtual(15);
+        Assertions.assertEquals(clienteBuilder.getIdadeAtual(),15);
+        clienteBuilder2.setIdadeAtual(52);
+        Assertions.assertEquals(clienteBuilder2.getIdadeAtual(),52);
     }
     @Test
     public void testToStringIdentificacao(){
