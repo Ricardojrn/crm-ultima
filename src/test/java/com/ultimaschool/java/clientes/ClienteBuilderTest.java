@@ -15,7 +15,7 @@ public class ClienteBuilderTest extends TestCase {
         clienteBuilder2 = new ClienteBuilder();
         clienteBuilder = new ClienteBuilder().comIdentificacao("Joana", "Maria",
                 "Rocha", "123.456.789-00","10/01/1993",'F').comContatos(
-                        "joana@gmail.com","Av. Brasil", "(85) 9999-9999");
+                "joana@gmail.com","Av. Brasil", "(85) 9999-9999");
     }
 
     @Test
@@ -49,8 +49,8 @@ public class ClienteBuilderTest extends TestCase {
     }
     @Test
     public void testSetPrimeiroNome() {
-        clienteBuilder.setPrimeiroNome("Tamires");
-        Assertions.assertEquals(clienteBuilder.getPrimeiroNome(),"Tamires");
+        clienteBuilder.setPrimeiroNome("Aline");
+        Assertions.assertEquals(clienteBuilder.getPrimeiroNome(),"Aline");
         clienteBuilder2.setPrimeiroNome("João");
         Assertions.assertEquals(clienteBuilder2.getPrimeiroNome(),"João");
     }
