@@ -95,6 +95,7 @@ public class ClienteBuilderTest extends TestCase {
         Assertions.assertNull(clienteBuilder2.getDataNascimento());
         Assertions.assertEquals(clienteBuilder.getDataNascimento(),"10/01/1993");
     }
+    @Test
     public void testSetDataNascimento(){
         clienteBuilder.setDataNascimento("12/04/1992");
         Assertions.assertEquals(clienteBuilder.getDataNascimento(),"12/04/1992");
@@ -104,12 +105,37 @@ public class ClienteBuilderTest extends TestCase {
         Assertions.assertEquals(clienteBuilder2.getIdadeAtual(),0);
         Assertions.assertEquals(clienteBuilder.getIdadeAtual(),31);
     }
+    @Test
     public void testSetIdadeAtual(){
         clienteBuilder.setIdadeAtual(15);
         Assertions.assertEquals(clienteBuilder.getIdadeAtual(),15);
         clienteBuilder2.setIdadeAtual(52);
         Assertions.assertEquals(clienteBuilder2.getIdadeAtual(),52);
     }
+    @Test
+    public void testGetEndereco(){
+        Assertions.assertNull(clienteBuilder2.getEndereco());
+        Assertions.assertEquals(clienteBuilder.getEndereco(),"Av. Brasil");
+    }
+    @Test
+    public void testSetEndereco(){
+        clienteBuilder.setEndereco("rua Cascavel");
+        Assertions.assertEquals(clienteBuilder.getEndereco(),"rua Cascavel");
+        clienteBuilder2.setEndereco("Av. Ceará");
+        Assertions.assertEquals(clienteBuilder2.getEndereco(),"Av. Ceará");
+    }@Test
+    public void testGetTelefone(){
+        Assertions.assertNull(clienteBuilder2.getTelefone());
+        Assertions.assertEquals(clienteBuilder.getTelefone(),"(85) 9999-9999");
+    }
+    @Test
+    public void testSetTelefone(){
+        clienteBuilder.setTelefone("(85) 8888-8888");
+        Assertions.assertEquals(clienteBuilder.getTelefone(),"(85) 8888-8888");
+        clienteBuilder2.setTelefone("(85) 9999-9999");
+        Assertions.assertEquals(clienteBuilder2.getTelefone(),"(85) 9999-9999");
+    }
+
     @Test
     public void testToStringIdentificacao(){
         Assertions.assertEquals(clienteBuilder.toStringCIdentificacao(),"Os dados pessoais são; \n" +
